@@ -1,0 +1,22 @@
+html body{
+    color: #FFFFFF;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.bg-custom{
+    background-color: #673ab7;
+}
+
+.bg-custom-primary{
+    background-color: #4527a0;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
