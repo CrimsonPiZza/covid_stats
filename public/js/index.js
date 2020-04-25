@@ -1,26 +1,44 @@
+// Global Declaration
+
+let summary
+let global
+let allCountries
+
+// End of Global Declaration
 
 // Card Generation
 
 async function generateAllCard(){
     // Get summary from summary.js
-    let summary = await getSummary()
+    summary = await getSummary()
 
     // Global Summary
-    let global = summary.Global
+    global = summary.Global
     // Create Card for global
-    createCard("Global",global.NewConfirmed,global.NewDeaths,global.NewRecovered)
+    createCard("GLOBAL","Global",global.NewConfirmed,global.NewDeaths,global.NewRecovered)
 
     // All Countries
-    let allCountries = summary.Countries
+    allCountries = summary.Countries
+
     // Create Card for all countries
-    allCountries.forEach((country) => {
-        createCard(country.Country,country.NewConfirmed,country.NewDeaths,country.NewRecovered)
+    allCountries.forEach(async (country) => {
+        createCard(country.CountryCode,country.Country,country.NewConfirmed,country.NewDeaths,country.NewRecovered)
     })
 }
 
 generateAllCard()
 
 // End of Card Generation
+
+
+//
+
+function embedData(countryCode){
+    emb(countryCode,global,allCountries)
+}
+
+//
+
 
 // Custom Search Function
 

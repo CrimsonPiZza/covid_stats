@@ -4,5 +4,3 @@ async function getSummary() {
        return response.data
     });
 }
-
-exports = getSummary
