@@ -1,4 +1,4 @@
-function createCard(title,newConfirmed,newDeaths,newRecovered){
+function createCard(countryCode,title,newConfirmed,newDeaths,newRecovered){
 
     // Main Row
     const row = document.getElementById("mainRow")
@@ -14,7 +14,7 @@ function createCard(title,newConfirmed,newDeaths,newRecovered){
         // Set Style
         card.setAttribute("style","width: 18rem;")
         // Set Class
-        card.setAttribute("Class","shadow card bg-dark mx-auto")
+        card.setAttribute("Class","card bg-dark mx-auto animated bounceInUp")
 
 
     // Image
@@ -61,6 +61,15 @@ function createCard(title,newConfirmed,newDeaths,newRecovered){
         // Set HTML
         e_newRecovered.innerHTML = `New Recovered : <span class="text-info font-weight-bold">${newRecovered}</span>` 
 
+    // View Full Report
+    const viewFullReport = document.createElement("div")
+        // Set atrribute of div
+        viewFullReport.setAttribute("class","text-right")
+        viewFullReport.innerHTML = `
+        <button onclick="embedData('${countryCode}')" type="button" class="btn btn-sm btn-outline-info waves-effect font-weight-bold" data-toggle="modal" data-target="#centralModalWarning">
+            Full Report <i class="text-right fas fa-arrow-right animated rotateIn"></i>
+        </button>
+        `
 
     // Primary Appending
         // Append Card's Body
@@ -68,6 +77,7 @@ function createCard(title,newConfirmed,newDeaths,newRecovered){
         cardBody.appendChild(e_newConfirmed)
         cardBody.appendChild(e_newDeaths)
         cardBody.appendChild(e_newRecovered)
+        cardBody.appendChild(viewFullReport)
 
         // Append Card
         card.appendChild(img)
@@ -81,5 +91,3 @@ function createCard(title,newConfirmed,newDeaths,newRecovered){
 
 
 }
-
-exports = createCard
