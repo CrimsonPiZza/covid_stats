@@ -1,4 +1,4 @@
 const config = {}
-config.PORT = 5000
+config.PORT = 80
 
 module.exports = config
