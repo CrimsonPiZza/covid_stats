@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
+const config = require('./config')
 
 const app = express();
-const PORT = 5000;
+const PORT = config.PORT;
 
 app.use(express.static('public'))
 
