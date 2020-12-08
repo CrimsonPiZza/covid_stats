@@ -1,9 +1,10 @@
 const express = require('express');
 const path = require('path');
+const { env } = require('process');
 const config = require('./config')
 
 const app = express();
-const PORT = config.PORT;
+const PORT = config.PORT || process.env.PORT;
 
 app.use(express.static('public'))
 
