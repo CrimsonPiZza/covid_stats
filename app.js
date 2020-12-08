@@ -4,7 +4,7 @@ const { env } = require('process');
 const config = require('./config')
 
 const app = express();
-const PORT = config.PORT || process.env.PORT;
+const PORT = process.env.PORT || config.PORT;
 
 app.use(express.static('public'))
 
