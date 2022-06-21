@@ -1,3 +1,7 @@
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function pushToDom(title,newConfirmed,newDeaths,newRecovered,totalConfirmed,totalDeaths,totalRecovered){
     const e_title = document.getElementById("statistic_Title")
     const e_newConfirmed = document.getElementById("statistic_NewConfirmed")
@@ -7,13 +11,13 @@ function pushToDom(title,newConfirmed,newDeaths,newRecovered,totalConfirmed,tota
     const e_totalDeaths = document.getElementById("statistic_TotalDeaths")
     const e_totalRecovered = document.getElementById("statistic_TotalRecovered")
 
-    e_title.innerText = title
-    e_newConfirmed.innerText = newConfirmed
-    e_newDeaths.innerText = newDeaths
-    e_newRecovered.innerText = newRecovered
-    e_totalConfirmed.innerText = totalConfirmed
-    e_totalDeaths.innerText = totalDeaths
-    e_totalRecovered.innerText = totalRecovered
+    e_title.innerText = numberWithCommas(title)
+    e_newConfirmed.innerText = numberWithCommas(newConfirmed)
+    e_newDeaths.innerText = numberWithCommas(newDeaths)
+    e_newRecovered.innerText = numberWithCommas(newRecovered)
+    e_totalConfirmed.innerText = numberWithCommas(totalConfirmed)
+    e_totalDeaths.innerText = numberWithCommas(totalDeaths)
+    e_totalRecovered.innerText = numberWithCommas(totalRecovered)
 
 }
 
