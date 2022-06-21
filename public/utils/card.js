@@ -1,3 +1,7 @@
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function createCard(countryCode,title,newConfirmed,newDeaths,newRecovered){
 
     // Main Row
@@ -45,21 +49,21 @@ function createCard(countryCode,title,newConfirmed,newDeaths,newRecovered){
         // Set Class
         e_newConfirmed.setAttribute("class","card-text text-white")
         // Set HTML
-        e_newConfirmed.innerHTML = `New Confirmed : <span class="text-info font-weight-bold">${newConfirmed}</span>` 
+        e_newConfirmed.innerHTML = `New Confirmed : <span class="text-info font-weight-bold">${numberWithCommas(newConfirmed)}</span>` 
 
     // New Deaths
     const e_newDeaths = document.createElement("p")
         // Set Class
         e_newDeaths.setAttribute("class","card-text text-white")
         // Set HTML
-        e_newDeaths.innerHTML = `New Deaths : <span class="text-info font-weight-bold">${newDeaths}</span>` 
+        e_newDeaths.innerHTML = `New Deaths : <span class="text-info font-weight-bold">${numberWithCommas(newDeaths)}</span>` 
 
     // New Deaths
     const e_newRecovered = document.createElement("p")
         // Set Class
         e_newRecovered.setAttribute("class","card-text text-white")
         // Set HTML
-        e_newRecovered.innerHTML = `New Recovered : <span class="text-info font-weight-bold">${newRecovered}</span>` 
+        e_newRecovered.innerHTML = `New Recovered : <span class="text-info font-weight-bold">${numberWithCommas(newRecovered)}</span>` 
 
     // View Full Report
     const viewFullReport = document.createElement("div")
